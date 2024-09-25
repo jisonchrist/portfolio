@@ -1,0 +1,671 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', 'sans-serif';
+    text-decoration: none;
+    scroll-behavior: smooth;
+}
+
+body {
+    width: 100%;
+    height: auto;
+    overflow-x: hidden;
+    background-color: black;
+}
+
+/* Custom Scroll Bar CSS */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: white;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #b74b4b;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #a03c3c;
+}
+
+/* Navbar Styling */
+nav {
+    width: 100%;
+    height: 10vh;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.nav-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-container span {
+    font-size: 2rem;
+    color: #b74b4b;
+    font-weight: bold;
+    text-shadow: 0 0 10px #b74b4b;
+}
+
+/* Default styles (for desktop) */
+.hamburg {
+    display: none; /* Hide by default (desktop) */
+}
+
+/* Styles for mobile */
+@media (max-width: 968px) {
+    .hamburg {
+        display: block; /* Show on mobile devices */
+    }
+}
+
+
+
+.hamburg,
+.cancel {
+    cursor: pointer;
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    color: white;
+    font-size: clamp(2.5rem, 0.5rem + 5vw, 3rem);
+}
+
+/* Hide the cancel button by default */
+.cancel {
+    display: none;
+}
+
+/* Links Styling */
+.nav-container .links {
+    display: flex;
+}
+
+.nav-container .links a {
+    position: relative;
+    font-size: 1.2rem;
+    color: white;
+    margin: 0 20px;
+    text-decoration: none;
+    font-weight: 550;
+    transition: color 0.3s linear;
+}
+
+.nav-container .links a::before {
+    position: absolute;
+    content: "";
+    bottom: -3px;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background-color: #b74b4b;
+    transition: width 0.2s linear;
+}
+
+.nav-container .links a:hover {
+    color: #b74b4b;
+}
+
+.nav-container .links a:hover::before {
+    width: 100%;
+}
+
+/* Dropdown Styling */
+.dropdown {
+    z-index: 100;
+    display: none; /* Hide dropdown by default */
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px) brightness(40%);
+    box-shadow: 0 0 20px black;
+    transition: 0.2s linear;
+}
+
+.dropdown .links a {
+    display: flex;
+    color: #b74b4b;
+    justify-content: center;
+    padding: 15px 0;
+    align-items: center;
+    transition: 0.2s linear;
+}
+
+.dropdown .links a:hover {
+    background-color: #b74b4b;
+    color: white;
+}
+
+section {
+    width: 100%;
+    min-height: 90vh;
+}
+
+section .main-container {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 100px;
+    align-items: center;
+}
+
+.main-container .image {
+    width: 500px;
+    height: 80vh;
+    border-radius: 100%;
+    overflow: hidden;
+    box-shadow: 0 0 50px #b74b4b;
+}
+
+.main-container .image img {
+    width: 100%;
+}
+
+.main-container .image:hover {
+    animation: animate 1.5s ease-in-out infinite;
+}
+
+@keyframes animate {
+    0% {
+        scale: 1;
+    }
+    50% {
+        scale: 1.05;
+    }
+    100% {
+        scale: 1;
+    }
+}
+
+.main-container .content {
+    color: white;
+    width: 40%;
+}
+
+.content h1 {
+    font-size: clamp(1rem, 1rem + 5vw, 1.8rem);
+}
+
+.content h1 span {
+    color: #b74b4b;
+    text-shadow: 0 0 10px #b74b4b;
+}
+
+.content .typewriter {
+    font-size: clamp(1rem, 1rem + 5vw, 2.5rem);
+    font-weight: 600;
+}
+
+.content .typewriter-text {
+    color: #b74b4b;
+    text-shadow: 0 0 10px #b74b4b;
+}
+
+.content p {
+    font-size: clamp(0.4rem, 0.2rem + 9vw, 1rem);
+    margin: 10px 0;
+}
+
+.social-links i {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 3rem;
+    height: 3rem;
+    background-color: transparent;
+    border: 0.2rem solid #b74b4b;
+    border-radius: 50%;
+    color: #b74b4b;
+    margin: 5px 15px;
+    font-size: 1.5rem;
+    transition: 0.2s linear;
+}
+
+.social-links i:hover {
+    scale: 1.3;
+    color: black;
+    background-color: #b74b4b;
+    filter: drop-shadow(0 0 10px #b74b4b);
+}
+
+.content button {
+    display: inline-block;
+    padding: 15px 30px;
+    margin: 30px 0;
+    background: linear-gradient(145deg, #b74b4b, #a03c3c);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    outline: none;
+    cursor: pointer;
+}
+
+.content button:hover {
+    background: linear-gradient(145deg, #a03c3c, #b74b4b);
+    color: #b74b4b;
+    border: 2px solid #b74b4b;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    transform: translateY(-3px); /* Subtle lift effect */
+}
+
+.content button:active {
+    transform: translateY(1px); /* Push effect when clicked */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow becomes softer on click */
+}
+
+section .content {
+    width: 80%;
+    margin: 0 auto; /* Centering the content */
+    font-family: 'Poppins', 'sans-serif';
+    color: white; /* Set a default text color */
+}
+
+.about .about-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0; /* Add padding for spacing */
+}
+
+section .title {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+section .title span {
+    color: white;
+    font-size: 30px;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 8px;
+}
+
+section .title span::before,
+section .title span::after {
+    content: '';
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background: #b74b4b;
+    left: 0;
+    bottom: 0;
+}
+
+section .title span::after {
+    bottom: -7px;
+    width: 70%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.about .about-details .left {
+    width: 45%;
+}
+
+.about .left img {
+    height: 400px;
+    width: 400px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.about-details .right {
+    width: 55%;
+}
+
+.section .topic { /* Corrected 'sectio' to 'section' */
+    color: white;
+    font-size: 25px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.about-details .right p {
+    text-align: justify;
+    color: white;
+}
+
+section .button { /* Fixed class name to 'button' */
+    margin: 16px 0;
+}
+
+section .button button { /* Fixed class name to 'button' */
+    outline: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 25px;
+    font-weight: 400;
+    background: #b74b4b;
+    color: white;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: all 0.4s ease;
+}
+
+section .button button:hover {
+    border-color: #b74b4b;
+    background-color: white;
+    color: #b74b4b;
+}
+
+.skills {
+    background: black;
+    padding: 40px 0; /* Add padding to the main skills section */
+    text-align: center; /* Center text within the skills section */
+}
+
+.skills .content {
+    width: 80%; /* Center the content within the skills section */
+    margin: 0 auto; /* Center the content */
+}
+
+.skills .skill-details {
+    display: flex;
+    flex-direction: column; /* Stack items vertically for better centering */
+    align-items: center; /* Center skill details */
+    margin: 20px 0; /* Add some margin for spacing between skill details */
+}
+
+.skills .skill-details .text {
+    width: 100%; /* Full width to ensure centering */
+}
+
+.skills .skill-details p {
+    color: white;
+    text-align: justify; /* Maintain justified text alignment */
+    font-size: 1rem; /* Adjust font size as needed */
+}
+
+.skills .skill-details .progress {
+    width: 50%; /* Adjust width for progress bars or any other element */
+    background-color: #444; /* A darker background for contrast */
+    border-radius: 5px;
+    overflow: hidden; /* Ensure rounded corners are visible */
+}
+
+.skills .skill-details .progress span {
+    display: block;
+    height: 10px; /* Height of the progress bar */
+    background-color: #b74b4b; /* Color for the progress indicator */
+    width: 0; /* Start width (can be animated with JavaScript) */
+    transition: width 0.5s ease; /* Smooth transition for progress change */
+}
+
+.skills .skill-details .experience {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center experience items */
+    margin: 0 10px;
+}
+
+.skills .skill-details .experience .num {
+    color: white;
+    font-size: 12px; /* Increased font size for better readability */
+    font-weight: bold; /* Bold for emphasis */
+}
+
+.skills .skill-details .experience .exp {
+    color: white;
+    margin-left: 20px;
+    font-size: 18px;
+    font-weight: 500;
+    margin: 0 6px;
+}
+
+.skills .skill-details .boxes {
+    width: 100%; /* Allow boxes to take full width of the container */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center the boxes */
+}
+
+.skills .skill-details .box {
+    flex: 0 1 calc(33.33% - 20px); /* Flexbox property for responsive boxes */
+    margin: 10px; /* Margin to add space around each box */
+    background: rgba(183, 75, 75, 0.1); /* Light background for boxes */
+    border-radius: 8px; /* Slightly rounded corners */
+    padding: 15px; /* Add padding inside boxes */
+    text-align: center; /* Center text inside boxes */
+}
+
+.skills .skill-details .boxes .topic {
+    font-size: 20px;
+    color: #b74b4b;
+    margin-bottom: 10px; /* Space below topic */
+}
+
+.skills .skill-details .boxes .per {
+    font-size: 60px;
+    color: #b74b4b;
+}
+
+.Education {
+    padding: 40px 0; /* Add some padding for the section */
+}
+
+.Education .boxes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center the boxes */
+    margin: 0 auto; /* Center the entire boxes container */
+    width: 80%; /* Optional: limit the width of the boxes container */
+}
+
+.Education .boxes .box {
+    margin: 20px; /* Space between boxes */
+    width: calc(33.33% - 40px); /* Adjust width to allow for margins */
+    text-align: center;
+    border-radius: 12px;
+    padding: 30px 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.12);
+    cursor: default;
+    color: white;
+    transition: all 0.4s ease;
+    background: rgba(183, 75, 75, 0.1); /* Set initial transparency */
+}
+
+/* Other styles remain the same... */
+
+.Education .boxes .box:hover {
+    background: rgba(183, 75, 75, 0.3); /* Darken the box on hover */
+    color: #fff; /* Ensure text remains visible */
+}
+
+.Education .boxes .box:hover .topic {
+    color: white; /* Ensure topic text is white on hover */
+}
+
+.Education .boxes .box:hover .icon {
+    background: none; 
+    transition: all 0.4s ease;
+}
+
+.Education .boxes .box p {
+    transition: color 0.4s ease;
+}
+
+.Education .boxes .box:hover p {
+    color: white; /* Ensure text color is white on box hover */
+}
+
+/*Contact Section*/
+
+
+.contact{
+    background: black;
+}
+.contact .content{
+    margin: 0 auto;
+    padding: 30px 0;
+}
+
+.contact .text{
+    width: 80%;
+    text-align: center;
+    margin: auto;
+}
+
+footer{
+    background: #b74b4b;
+    padding: 15px 0;
+    text-align: center;
+    font-family: 'Poppins''san-serif';
+}
+footer .text span{
+    font-size: 17px;
+    font-weight: 400;
+    color: #fff;
+}
+
+footer.text span a{
+    font-weight: 500;
+    color: #fff;
+}
+
+footer .text span a:hover{
+    text-decoration: underline;
+}
+
+.scroll-button{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    color: #fff;
+    background: #b74b4b;
+    padding: 7px 12px;
+    font-size: 18px;
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.15);
+    display: none;
+}
+
+@media (max-width:1000px){
+
+.about .about-details{
+    justify-content: center;
+    flex-shrink: column;
+    }
+.about .about-details .left{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+.about-details .right{
+    width: 90%;
+    margin: 40px 0;
+}
+.Education .boxes .box{
+    margin: 20px 0;
+    width: calc(100%/2-20px);
+}
+
+}
+
+@media(max-width:900px) {
+    .about .left img{
+        height: 350px;
+        width: 350px;
+    }
+}
+
+@media(max-width:968px) {
+    nav.logo{
+        position: absolute;
+        top: 16px;
+        left: 15px;
+        font-size: 1.5rem;
+    }
+    section .main-container{
+        padding-left: 0px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .nav-container .links{
+        display: none;
+    }
+
+    .hamburg,
+    .cancel{
+        opacity: 1;
+        pointer-events: visible;
+    }
+
+    .main-container .content{
+        margin-top: 20px;
+        width: 80%;
+    }
+
+    .social-links{
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: 1.5rem;
+    }
+    .main-container .image{
+        z-index: -1;
+        width: 50%;
+        height: 60%;
+    }
+
+    .skills .skills-details{
+        align-items: center;
+        justify-content: center;
+        flex: column;
+    }
+
+    .skills-details .text{
+        width: 100%;
+        margin-bottom: 50px;
+    }
+    .skills-details .boxes{
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    .Education .boxes .box{
+        margin: 20px 0;
+        width: 100%;
+    }
+
+    .contact .text{
+        width: 100%;
+    }
+}
+
+@media (max-width:500px) {
+    main-container .image{
+        width:50%;
+        height: 60%;
+        margin-bottom: 0px;
+    }
+
+    .main-container .content{
+        width: 80%;
+    }
+
+    .main-container button{
+        margin: 15px;
+    }
+    .skills-details .boxes .per{
+        font-size: 50px;
+        color: #b74b4b;
+    }
+    
+}
